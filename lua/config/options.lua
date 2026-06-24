@@ -47,7 +47,6 @@ opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"                          -- Use ripgrep for :grep
 opt.completeopt = "menu,menuone,noselect"             -- Completion popup options
 opt.pumheight = 10                                    -- Max items in completion popup
-opt.pumblend = 10                                     -- Completion popup transparency
 
 local icons = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
