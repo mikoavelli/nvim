@@ -27,21 +27,25 @@ return {
                 analysis = {
                   typeCheckingMode = "basic",
                   diagnosticMode = "openFilesOnly",
-                  reportUnusedImport = "none",
-                  reportUnusedVariable = "none",
-                  reportDuplicateImport = "none",
+
+                  inlayHints = {
+                    variableTypes = true,
+                    functionReturnTypes = true,
+                    callArgumentNames = true,
+                  },
                 },
               },
             },
           })
         end,
+
         ["ruff"] = function()
           lspconfig.ruff.setup({
             capabilities = capabilities,
             settings = {
               ruff = {
                 lineLength = 100,
-                lint = { select = { "E", "W", "F", "I", "UP", "S", "B", "N" } },
+                lint = { select = {} },
               },
             },
           })
@@ -67,12 +71,16 @@ return {
             settings = {
               ["rust-analyzer"] = {
                 check = { command = "clippy" },
+                diagnostics = { disabled = {} },
+                cargo = { allFeatures = true },
               },
             },
           })
         end,
       },
     })
+
+    vim.lsp.inlay_hint.enable(true)
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = "*.rs",
