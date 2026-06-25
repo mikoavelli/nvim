@@ -85,7 +85,7 @@ return {
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = "*.rs",
       callback = function()
-        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf(), name = "rust_analyzer", timeout_ms = 2000 })
+        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf(), name = "rust_analyzer" })
       end,
       group = vim.api.nvim_create_augroup("RustFormat", { clear = true }),
     })

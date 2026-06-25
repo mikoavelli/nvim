@@ -13,7 +13,7 @@ return {
     require("conform").setup(opts)
     vim.api.nvim_create_autocmd("BufWritePre", {
       callback = function()
-        pcall(require("conform").format, { async = true })
+        pcall(require("conform").format, { async = false })
       end,
     })
   end,
