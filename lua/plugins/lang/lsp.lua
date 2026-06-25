@@ -8,6 +8,7 @@ return {
   config = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local lspconfig = require("lspconfig")
+    local ruff_config = require("config.ruff")
 
     require("mason").setup()
     require("mason-lspconfig").setup({
@@ -42,10 +43,13 @@ return {
         ["ruff"] = function()
           lspconfig.ruff.setup({
             capabilities = capabilities,
-            settings = {
-              ruff = {
-                lineLength = 100,
-                lint = { select = {} },
+            root_dir = function(fname)
+              return vim.fn.fnamemodify(fname, ":p:h")
+            end,
+            init_options = {
+              settings = {
+                lineLength = ruff_config.lineLength,
+                lint = { select = ruff_config.select },
               },
             },
           })

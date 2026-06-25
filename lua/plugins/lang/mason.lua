@@ -9,6 +9,7 @@ return {
       "shellcheck",
       "luacheck",
       "mypy",
+      "ruff",
     },
   },
   config = function(_, opts)
