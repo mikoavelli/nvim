@@ -27,7 +27,7 @@ return {
           end,
           "fallback",
         },
-        ["<Esc>"]  = { "hide", "fallback" },
+        ["<Esc>"]  = { "hide", function() vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, false, true), "n") end },
         ["<C-n>"]  = { function() return true end },
         ["<C-p>"]  = { function() return true end },
       },
