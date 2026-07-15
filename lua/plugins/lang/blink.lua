@@ -22,12 +22,14 @@ return {
           function(cmp)
             if cmp.get_selected_item() then
               cmp.accept()
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
               return true
             end
           end,
           "fallback",
         },
+        ["<Esc>"]  = { "hide", "fallback" },
+        ["<C-n>"]  = { function() return true end },
+        ["<C-p>"]  = { function() return true end },
       },
       sources = function()
         local t = vim.fn.getcmdtype()

@@ -45,7 +45,7 @@ opt.foldtext = ""
 opt.formatoptions = "jcroqlnt"                        -- Auto-wrap, comment continuation, etc.
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"                          -- Use ripgrep for :grep
-opt.completeopt = "menu,menuone,noselect"             -- Completion popup options
+opt.completeopt = "menu,menuone,noinsert"              -- Completion popup options
 opt.pumheight = 10                                    -- Max items in completion popup
 
 local icons = { Error = " ", Warn = " ", Hint = " ", Info = " " }
