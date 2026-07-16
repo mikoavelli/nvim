@@ -10,6 +10,20 @@ return {
     local lspconfig = require("lspconfig")
     local ruff = require("config.ruff")
 
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(event)
+        local map = function(keys, func, desc)
+          vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+        end
+        map("gd", vim.lsp.buf.definition, "Go to definition")
+        map("gD", vim.lsp.buf.declaration, "Go to declaration")
+        map("gr", vim.lsp.buf.references, "Go to references")
+        map("gi", vim.lsp.buf.implementation, "Go to implementation")
+        map("K", vim.lsp.buf.hover, "Hover documentation")
+        map("<C-k>", vim.lsp.buf.signature_help, "Signature help")
+      end,
+    })
+
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = { "basedpyright", "ruff", "lua_ls", "rust_analyzer", "clangd" },
