@@ -10,6 +10,7 @@ return {
       "luacheck",
       "mypy",
       "ruff",
+      "clang-format",
     },
   },
   config = function(_, opts)
