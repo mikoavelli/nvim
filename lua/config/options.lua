@@ -1,6 +1,6 @@
 local opt = vim.opt
 
-opt.clipboard = "unnamedplus"                        -- Sync with system clipboard
+opt.clipboard = "unnamedplus"                         -- Sync with system clipboard
 opt.confirm = true                                    -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true                                 -- Highlight the current line
 opt.expandtab = true                                  -- Use spaces instead of tabs
@@ -45,7 +45,7 @@ opt.foldtext = ""
 opt.formatoptions = "jcroqlnt"                        -- Auto-wrap, comment continuation, etc.
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"                          -- Use ripgrep for :grep
-opt.completeopt = "menu,menuone,noinsert"              -- Completion popup options
+opt.completeopt = "menu,menuone,noinsert"             -- Completion popup options
 opt.pumheight = 10                                    -- Max items in completion popup
 
 local icons = { Error = " ", Warn = " ", Hint = " ", Info = " " }
