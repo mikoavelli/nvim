@@ -12,10 +12,10 @@ return {
 
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = { "basedpyright", "ruff", "lua_ls", "rust_analyzer" },
+      ensure_installed = { "basedpyright", "ruff", "lua_ls", "rust_analyzer", "clangd" },
       handlers = {
         function(server_name)
-          local servers = { "basedpyright", "ruff", "lua_ls", "rust_analyzer" }
+          local servers = { "basedpyright", "ruff", "lua_ls", "rust_analyzer", "clangd" }
           if not vim.tbl_contains(servers, server_name) then
             lspconfig[server_name].setup({ capabilities = capabilities })
           end
@@ -78,6 +78,11 @@ return {
                 cargo = { allFeatures = true },
               },
             },
+          })
+        end,
+        ["clangd"] = function()
+          lspconfig.clangd.setup({
+            capabilities = capabilities,
           })
         end,
       },
