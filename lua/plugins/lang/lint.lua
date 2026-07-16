@@ -7,7 +7,6 @@ return {
 
     lint.linters_by_ft = {
       python = { "ruff", "mypy" },
-      lua = { "luacheck" },
       sh = { "shellcheck" },
       bash = { "shellcheck" },
       zsh = { "shellcheck" },
