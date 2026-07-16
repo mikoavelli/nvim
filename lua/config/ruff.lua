@@ -1,13 +1,17 @@
-local M = {
-  lineLength = 100,
-  select = { "E", "W", "F", "I", "UP", "S", "B", "N" },
-}
+local M = {}
 
-function M.has_ruff_config(filepath)
+local defaults_dir = vim.fn.stdpath("config") .. "/defaults"
+
+M.configs = { "pyproject.toml", "ruff.toml", ".ruff.toml" }
+M.defaults = defaults_dir .. "/ruff.toml"
+
+function M.has_config(filepath)
   local dir = vim.fn.fnamemodify(filepath, ":h")
   while dir and dir ~= "/" do
-    if vim.fn.filereadable(dir .. "/pyproject.toml") == 1 then
-      return true
+    for _, name in ipairs(M.configs) do
+      if vim.fn.filereadable(dir .. "/" .. name) == 1 then
+        return true
+      end
     end
     local parent = vim.fn.fnamemodify(dir, ":h")
     if parent == dir then

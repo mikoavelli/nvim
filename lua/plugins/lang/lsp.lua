@@ -8,7 +8,7 @@ return {
   config = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local lspconfig = require("lspconfig")
-    local ruff_config = require("config.ruff")
+    local ruff = require("config.ruff")
 
     require("mason").setup()
     require("mason-lspconfig").setup({
@@ -48,8 +48,7 @@ return {
             end,
             init_options = {
               settings = {
-                lineLength = ruff_config.lineLength,
-                lint = { select = ruff_config.select },
+                configuration = ruff.defaults,
               },
             },
           })

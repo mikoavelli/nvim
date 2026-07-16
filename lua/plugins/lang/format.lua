@@ -12,7 +12,7 @@ return {
     },
   },
   config = function(_, opts)
-    local ruff_config = require("config.ruff")
+    local ruff = require("config.ruff")
     local clang = require("config.clang")
     require("conform").setup(opts)
     require("conform").formatters.clang_format = {
@@ -39,8 +39,9 @@ return {
           "--stdin-filename",
           ctx.filename,
         }
-        if not ruff_config.has_ruff_config(ctx.filename) then
-          vim.list_extend(args, { "--select", table.concat(ruff_config.select, ",") })
+        if not ruff.has_config(ctx.filename) then
+          table.insert(args, "--config")
+          table.insert(args, ruff.defaults)
         end
         table.insert(args, "-")
         return args
