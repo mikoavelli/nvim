@@ -3,7 +3,6 @@ return {
   event = { "BufReadPost", "BufWritePost" },
   config = function()
     local lint = require("lint")
-    local ruff = require("config.ruff")
 
     lint.linters_by_ft = {
       python = { "ruff", "mypy" },
@@ -26,7 +25,7 @@ return {
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       callback = function()
         local bufname = vim.api.nvim_buf_get_name(0)
-        local args = {
+        ruff_linter.args = {
           "check",
           "--force-exclude",
           "--quiet",
@@ -35,13 +34,8 @@ return {
           "--no-fix",
           "--output-format",
           "json",
+          "-",
         }
-        if not ruff.has_config(bufname) then
-          table.insert(args, "--config")
-          table.insert(args, ruff.defaults)
-        end
-        table.insert(args, "-")
-        ruff_linter.args = args
         lint.try_lint()
       end,
     })

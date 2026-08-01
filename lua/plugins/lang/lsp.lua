@@ -8,7 +8,6 @@ return {
   config = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local lspconfig = require("lspconfig")
-    local ruff = require("config.ruff")
 
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(event)
@@ -42,7 +41,6 @@ return {
                 analysis = {
                   typeCheckingMode = "basic",
                   diagnosticMode = "openFilesOnly",
-
                   inlayHints = {
                     variableTypes = true,
                     functionReturnTypes = true,
@@ -53,18 +51,9 @@ return {
             },
           })
         end,
-
         ["ruff"] = function()
           lspconfig.ruff.setup({
             capabilities = capabilities,
-            root_dir = function(fname)
-              return vim.fn.fnamemodify(fname, ":p:h")
-            end,
-            init_options = {
-              settings = {
-                configuration = ruff.defaults,
-              },
-            },
           })
         end,
         ["lua_ls"] = function()
