@@ -40,7 +40,8 @@ opt.fillchars = {
   eob = " ",
 }
 opt.foldlevel = 99
-opt.foldmethod = "indent"
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldtext = ""
 opt.formatoptions = "jcroqlnt"                        -- Auto-wrap, comment continuation, etc.
 opt.grepformat = "%f:%l:%c:%m"
