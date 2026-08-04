@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.keymap.set("x", "p", "P", { desc = "Paste without overwriting clipboard" })
+
 opt.clipboard = "unnamedplus"                         -- Sync with system clipboard
 opt.confirm = true                                    -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true                                 -- Highlight the current line
