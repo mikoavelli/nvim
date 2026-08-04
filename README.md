@@ -9,6 +9,8 @@ Plugin management is handled by `lazy.nvim`, with automatic tool installation vi
 ## Features
 
 - **Native Configuration Discovery**: Relies on external tools to perform native parent directory traversal to discover project configuration files.
+- **Syntax & Highlighting**:
+  - `nvim-treesitter` integration for accurate AST-based syntax highlighting and logical code folding.
 - **LSP & Tool Management**:
   - Automatically installs and configures language servers via `mason-lspconfig.nvim`.
   - Automatically manages CLI formatters and linters via `mason.nvim`.
@@ -40,8 +42,9 @@ Plugin management is handled by `lazy.nvim`, with automatic tool installation vi
     │   └── options.lua     # Global Neovim options, diagnostics, and autocommands
     └── plugins/
         ├── editor/
-        │   ├── gitsigns.lua # Git decorations in the signcolumn
-        │   └── whichkey.lua # Keymaps visual helper menu
+        │   ├── gitsigns.lua   # Git decorations in the signcolumn
+        │   ├── treesitter.lua # AST-based syntax highlighting and folding
+        │   └── whichkey.lua   # Keymaps visual helper menu
         ├── lang/
         │   ├── blink.lua   # Command-line completion configuration
         │   ├── cmp.lua     # Insert-mode completion engine configuration
@@ -96,7 +99,7 @@ nvim
 | `lua/config/options.lua` | Options, diagnostics display, and tab/indent autocommands. |
 | `lua/plugins/lang/` | Toolchain plugins (LSP, Mason, formatters, linters, completion). |
 | `lua/plugins/ui/` | Visual components (Catppuccin, Lualine, Noice, Snacks). |
-| `lua/plugins/editor/` | Editing tools (`gitsigns`, `which-key`). |
+| `lua/plugins/editor/` | Editing tools (`treesitter`, `gitsigns`, `which-key`). |
 
 ---
 
