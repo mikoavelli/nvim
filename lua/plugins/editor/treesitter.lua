@@ -36,7 +36,11 @@ return {
     ensure_installed = {
       "bash",
       "c",
+      "comment",
       "cpp",
+      "git_rebase",
+      "gitcommit",
+      "gitignore",
       "json",
       "kdl",
       "lua",
