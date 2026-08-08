@@ -24,43 +24,43 @@ return {
     end
 
     local colors = {
-      crust     = "#11111b",
-      surface0  = "#313244",
-      text      = "#cdd6f4",
-      overlay0  = "#6c7086",
-      mauve     = "#cba6f7",
-      teal      = "#94e2d5",
-      peach     = "#fab387",
-      yellow    = "#f9e2af",
-      red       = "#f38ba8",
+      crust = "#11111b",
+      surface0 = "#313244",
+      text = "#cdd6f4",
+      overlay0 = "#6c7086",
+      mauve = "#cba6f7",
+      teal = "#94e2d5",
+      peach = "#fab387",
+      yellow = "#f9e2af",
+      red = "#f38ba8",
     }
 
     local theme = {
       normal = {
-        a = { bg = colors.mauve,    fg = colors.crust, gui = "bold" },
+        a = { bg = colors.mauve, fg = colors.crust, gui = "bold" },
         b = { bg = colors.surface0, fg = colors.mauve },
-        c = { bg = "NONE",          fg = colors.text },
+        c = { bg = "NONE", fg = colors.text },
       },
       insert = {
-        a = { bg = colors.teal,     fg = colors.crust, gui = "bold" },
+        a = { bg = colors.teal, fg = colors.crust, gui = "bold" },
         b = { bg = colors.surface0, fg = colors.teal },
       },
       visual = {
-        a = { bg = colors.peach,    fg = colors.crust, gui = "bold" },
+        a = { bg = colors.peach, fg = colors.crust, gui = "bold" },
         b = { bg = colors.surface0, fg = colors.peach },
       },
       command = {
-        a = { bg = colors.yellow,   fg = colors.crust, gui = "bold" },
+        a = { bg = colors.yellow, fg = colors.crust, gui = "bold" },
         b = { bg = colors.surface0, fg = colors.yellow },
       },
       replace = {
-        a = { bg = colors.red,      fg = colors.crust, gui = "bold" },
+        a = { bg = colors.red, fg = colors.crust, gui = "bold" },
         b = { bg = colors.surface0, fg = colors.red },
       },
       inactive = {
         a = { bg = colors.surface0, fg = colors.overlay0 },
         b = { bg = colors.surface0, fg = colors.overlay0 },
-        c = { bg = "NONE",          fg = colors.overlay0 },
+        c = { bg = "NONE", fg = colors.overlay0 },
       },
     }
 
