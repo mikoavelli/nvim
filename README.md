@@ -18,6 +18,9 @@ Plugin management is handled by `lazy.nvim`, with automatic tool installation vi
 - **Formatting & Linting**:
   - Synchronous format-on-save via `conform.nvim`.
   - Asynchronous linting on read and write via `nvim-lint`.
+- **Editing & Productivity**:
+  - Automatic bracket and quote pairing via `nvim-autopairs`.
+  - `TODO`/`FIXME`/`HACK` comment highlighting and navigation via `todo-comments.nvim`.
 - **Completion System**:
   - `nvim-cmp` handles insert-mode completion with `cmp-nvim-lsp`.
   - `blink.cmp` provides command-line completion for commands and search buffers.
@@ -42,9 +45,11 @@ Plugin management is handled by `lazy.nvim`, with automatic tool installation vi
     │   └── options.lua     # Global Neovim options, diagnostics, and autocommands
     └── plugins/
         ├── editor/
-        │   ├── gitsigns.lua   # Git decorations in the signcolumn
-        │   ├── treesitter.lua # AST-based syntax highlighting and folding
-        │   └── whichkey.lua   # Keymaps visual helper menu
+        │   ├── autopairs.lua     # Automatic bracket and quote pairing
+        │   ├── gitsigns.lua      # Git decorations in the signcolumn
+        │   ├── todo-comments.lua # TODO/FIXME comment highlighting and search
+        │   ├── treesitter.lua    # AST-based syntax highlighting and folding
+        │   └── whichkey.lua      # Keymaps visual helper menu
         ├── lang/
         │   ├── blink.lua   # Command-line completion configuration
         │   ├── cmp.lua     # Insert-mode completion engine configuration
@@ -99,7 +104,7 @@ nvim
 | `lua/config/options.lua` | Options, diagnostics display, and tab/indent autocommands. |
 | `lua/plugins/lang/` | Toolchain plugins (LSP, Mason, formatters, linters, completion). |
 | `lua/plugins/ui/` | Visual components (Catppuccin, Lualine, Noice, Snacks). |
-| `lua/plugins/editor/` | Editing tools (`treesitter`, `gitsigns`, `which-key`). |
+| `lua/plugins/editor/` | Editing tools (`treesitter`, `gitsigns`, `which-key`, `autopairs`, `todo-comments`). |
 
 ---
 
