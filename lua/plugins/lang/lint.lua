@@ -5,25 +5,11 @@ return {
     local lint = require("lint")
 
     lint.linters_by_ft = {
-      python = { "ruff", "mypy" },
+      python = { "ruff" },
       sh = { "shellcheck" },
       bash = { "shellcheck" },
       zsh = { "shellcheck" },
     }
-
-    local mypy = require("lint").linters.mypy
-    mypy.args = {
-      "--show-column-numbers",
-      "--show-error-end",
-      "--hide-error-context",
-      "--no-color-output",
-      "--no-error-summary",
-      "--no-pretty",
-      "--check-untyped-defs",
-    }
-    if vim.env.MYPY_CACHE_DIR and vim.env.MYPY_CACHE_DIR ~= "" then
-      table.insert(mypy.args, "--cache-dir=" .. vim.env.MYPY_CACHE_DIR)
-    end
 
     local ruff_linter = require("lint").linters.ruff
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {

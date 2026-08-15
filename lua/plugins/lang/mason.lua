@@ -7,7 +7,6 @@ return {
       "stylua",
       "shfmt",
       "shellcheck",
-      "mypy",
       "ruff",
       "clang-format",
     },
