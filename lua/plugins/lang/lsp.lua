@@ -25,10 +25,10 @@ return {
 
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = { "basedpyright", "ruff", "lua_ls", "rust_analyzer", "clangd" },
+      ensure_installed = { "basedpyright", "ruff", "lua_ls", "clangd" },
       handlers = {
         function(server_name)
-          local servers = { "basedpyright", "ruff", "lua_ls", "rust_analyzer", "clangd" }
+          local servers = { "basedpyright", "ruff", "lua_ls", "clangd" }
           if not vim.tbl_contains(servers, server_name) then
             lspconfig[server_name].setup({ capabilities = capabilities })
           end
@@ -71,18 +71,6 @@ return {
             },
           })
         end,
-        ["rust_analyzer"] = function()
-          lspconfig.rust_analyzer.setup({
-            capabilities = capabilities,
-            settings = {
-              ["rust-analyzer"] = {
-                check = { command = "clippy" },
-                diagnostics = { disabled = {} },
-                cargo = { allFeatures = true },
-              },
-            },
-          })
-        end,
         ["clangd"] = function()
           lspconfig.clangd.setup({
             capabilities = capabilities,
@@ -92,13 +80,5 @@ return {
     })
 
     vim.lsp.inlay_hint.enable(true)
-
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*.rs",
-      callback = function()
-        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf(), name = "rust_analyzer" })
-      end,
-      group = vim.api.nvim_create_augroup("RustFormat", { clear = true }),
-    })
   end,
 }

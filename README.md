@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-A modular, high-performance Neovim setup optimized for Python, C/C++, Rust, Lua, and Shell development.
+A modular, high-performance Neovim setup optimized for Python, C/C++, Lua, and Shell development.
 
 Plugin management is handled by `lazy.nvim`, with automatic tool installation via `mason.nvim`, native project configuration resolution, and synchronous format-on-save.
 
@@ -72,7 +72,6 @@ Plugin management is handled by `lazy.nvim`, with automatic tool installation vi
 | :--- | :--- | :--- | :--- |
 | **Python** | `basedpyright`, `ruff` | `ruff` (`ruff_fix`, `ruff_format`) | `ruff` |
 | **C / C++** | `clangd` | `clang-format` | `clangd` (LSP) |
-| **Rust** | `rust_analyzer` | `rust_analyzer` | `clippy` (via LSP) |
 | **Lua** | `lua_ls` | `stylua` | `lua_ls` (LSP) |
 | **Shell (sh/bash/zsh)** | — | `shfmt` | `shellcheck` |
 
