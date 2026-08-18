@@ -1,6 +1,10 @@
 return {
   "stevearc/conform.nvim",
   opts = {
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_fallback = true,
+    },
     formatters_by_ft = {
       python = { "ruff_fix", "ruff_format" },
       lua = { "stylua" },
@@ -19,10 +23,5 @@ return {
       args = { "--style=file", "--assume-filename", "$FILENAME" },
       stdin = true,
     }
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      callback = function()
-        pcall(require("conform").format, { async = false })
-      end,
-    })
   end,
 }

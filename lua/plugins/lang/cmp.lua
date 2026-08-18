@@ -7,9 +7,6 @@ return {
 
     cmp.setup({
       sources = { { name = "nvim_lsp" } },
-      completion = {
-        completeopt = "menu,menuone,noinsert",
-      },
       mapping = cmp.mapping.preset.insert({
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -32,8 +29,6 @@ return {
             fallback()
           end
         end),
-        ["<C-n>"] = cmp.mapping(function() end),
-        ["<C-p>"] = cmp.mapping(function() end),
       }),
     })
   end,

@@ -23,15 +23,11 @@ return {
       end,
     })
 
-    require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = { "basedpyright", "ruff", "lua_ls", "clangd" },
       handlers = {
         function(server_name)
-          local servers = { "basedpyright", "ruff", "lua_ls", "clangd" }
-          if not vim.tbl_contains(servers, server_name) then
-            lspconfig[server_name].setup({ capabilities = capabilities })
-          end
+          lspconfig[server_name].setup({ capabilities = capabilities })
         end,
         ["basedpyright"] = function()
           lspconfig.basedpyright.setup({
@@ -51,11 +47,6 @@ return {
             },
           })
         end,
-        ["ruff"] = function()
-          lspconfig.ruff.setup({
-            capabilities = capabilities,
-          })
-        end,
         ["lua_ls"] = function()
           lspconfig.lua_ls.setup({
             capabilities = capabilities,
@@ -69,11 +60,6 @@ return {
                 },
               },
             },
-          })
-        end,
-        ["clangd"] = function()
-          lspconfig.clangd.setup({
-            capabilities = capabilities,
           })
         end,
       },
